@@ -15,6 +15,7 @@
 class Document
 attr_accessor :author, :title, :content   #setter and getter for each parameter
 
+  
 	def initialize(attributes = {})  # constructor
       @author = attributes[:author]
       @title = attributes[:title]
@@ -26,10 +27,19 @@ attr_accessor :author, :title, :content   #setter and getter for each parameter
     	#each_word do |elem|
     		#x(elem)
     		x
-
-	end
-end
+    end 
+    def each_word()
+    	words.each do |word|
+        yield word
+    end
+    end
+    end
 a=Document.new(:author => "someone", :title => "my book", :content => "this is the content of my book")
 
 add_content = a
 p add_content.words
+a.each_word do |word|
+ puts word
+ end
+
+
