@@ -14,8 +14,31 @@
 
 
 
-class Document
+class Document 
+	attr_accessor :author, :title, :content   #setter and getter for each parameter
+
+	def initialize(attributes = {})  # constructor
+      @author = attributes[:author]
+      @title = attributes[:title]
+      @content = attributes[:content]
+    end
+ 
+    def +(b)
+    	if b.is_a?String # if w else leeha end wa7da
+    		 s = Document.new(:author => @author, :title => @title, :content =>  @content + b)
+    
+    	else
+			 s = Document.new(:author => @author, :title => @title, :content =>  @content + b.content)
+   
+    	end
+	s
+	end
+    
 end
+
+
+
+
 
 
 # These examples should work
